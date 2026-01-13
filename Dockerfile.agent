@@ -1,0 +1,48 @@
+# Dockerfile.agent
+#
+# Multi-stage build for a Bindu agent (airbnb-travel-agent example).
+# Builder: python:3.12-bookworm + uv
+# Runtime: bindu-runtime-base
+
+# ---------- Builder stage ----------
+FROM python:3.12-bookworm AS builder
+
+# Install uv once in builder (no need in runtime)
+RUN pip install --no-cache-dir uv
+
+ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
+WORKDIR /app
+
+# 1) Install dependencies into .venv (lockfile + pyproject)
+COPY pyproject.toml uv.lock ./
+RUN uv sync --frozen --no-install-project --no-dev
+
+# 2) Copy agent code
+COPY books_recommendation_agent/ /app/books_recommendation_agent/
+COPY *.py /app/
+COPY README.md /app/
+
+# 3) Install project itself into the same venv
+RUN uv sync --frozen --no-dev
+
+# ---------- Runtime stage ----------
+FROM raahulrahl/bindu-runtime-base:latest
+
+# OCI labels
+LABEL org.opencontainers.image.title="books-recommendation-agent"
+LABEL org.opencontainers.image.description="An intelligent AI agent that delivers personalized book suggestions based on reader preferences, favorite titles, genres, ratings, reviews, and upcoming releases. It analyzes input to curate tailored literary recommendations with detailed metadata like author, genre, plot summary, and ratings. Ideal for discovering new reads, genre-specific lists, or books similar to favorites, this agent helps users explore diverse fiction and non-fiction options with contextual, engaging suggestions."
+LABEL org.opencontainers.image.authors="raahul <raahul@getbindu.com>"
+LABEL org.opencontainers.image.version="1.0.0"
+LABEL org.opencontainers.image.source="https://github.com/raahulrahl/books-recommendation-agent"
+LABEL org.opencontainers.image.licenses="MIT"
+
+# Copy app + venv from builder
+COPY --from=builder /app /app
+
+# Use the agent venv Python by default
+ENV PATH="/app/.venv/bin:$PATH"
+
+WORKDIR /app
+EXPOSE 3773
+
+CMD ["python", "-m", "books_recommendation_agent"]
