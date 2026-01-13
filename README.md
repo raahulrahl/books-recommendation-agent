@@ -2,18 +2,18 @@
   <img src="https://raw.githubusercontent.com/getbindu/create-bindu-agent/refs/heads/main/assets/light.svg" alt="bindu Logo" width="200">
 </p>
 
-<h1 align="center">books-recommendation-agent</h1>
+<h1 align="center">books-recommender-agent</h1>
 
 <p align="center">
-  <strong>An intelligent AI agent that delivers personalized book suggestions based on reader preferences, favorite titles, genres, ratings, reviews, and upcoming releases. It analyzes input to curate tailored literary recommendations with detailed metadata like author, genre, plot summary, and ratings. Ideal for discovering new reads, genre-specific lists, or books similar to favorites, this agent helps users explore diverse fiction and non-fiction options with contextual, engaging suggestions.</strong>
+  <strong>An intelligent AI agent that delivers personalized book suggestions based on reader preferences, favorite titles, genres, ratings, reviews, and upcoming releases. It analyzes input to curate tailored literary recommendations with detailed metadata like author, genre, plot summary, and ratings. Ideal for discovering new reads, genre-specific lists, or books similar to favorites, this agent helps users explore diverse fiction and non-fiction options with contextual, engaging suggestions</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/raahulrahl/books-recommendation-agent/actions/workflows/main.yml?query=branch%3Amain">
-    <img src="https://img.shields.io/github/actions/workflow/status/raahulrahl/books-recommendation-agent/main.yml?branch=main" alt="Build status">
+  <a href="https://github.com/raahulrahl/books-recommender-agent/actions/workflows/main.yml?query=branch%3Amain">
+    <img src="https://img.shields.io/github/actions/workflow/status/raahulrahl/books-recommender-agent/main.yml?branch=main" alt="Build status">
   </a>
-  <a href="https://img.shields.io/github/license/raahulrahl/books-recommendation-agent">
-    <img src="https://img.shields.io/github/license/raahulrahl/books-recommendation-agent" alt="License">
+  <a href="https://img.shields.io/github/license/raahulrahl/books-recommender-agent">
+    <img src="https://img.shields.io/github/license/raahulrahl/books-recommender-agent" alt="License">
   </a>
 </p>
 
@@ -21,12 +21,14 @@
 
 ## 📖 Overview
 
-An intelligent AI agent that delivers personalized book suggestions based on reader preferences, favorite titles, genres, ratings, reviews, and upcoming releases. It analyzes input to curate tailored literary recommendations with detailed metadata like author, genre, plot summary, and ratings. Ideal for discovering new reads, genre-specific lists, or books similar to favorites, this agent helps users explore diverse fiction and non-fiction options with contextual, engaging suggestions.. Built on the [Bindu Agent Framework](https://github.com/getbindu/bindu) for the Internet of Agents.
+An intelligent AI agent that delivers personalized book suggestions based on reader preferences, favorite titles, genres, ratings, reviews, and upcoming releases. It analyzes input to curate tailored literary recommendations with detailed metadata like author, genre, plot summary, and ratings. Ideal for discovering new reads, genre-specific lists, or books similar to favorites, this agent helps users explore diverse fiction and non-fiction options with contextual, engaging suggestions. Built on the [Bindu Agent Framework](https://github.com/getbindu/bindu) for the Internet of Agents.
 
 **Key Capabilities:**
-- 🔍 [Add your key capabilities here]
-- ✅ [Add another capability]
-- 🚨 [Add another capability]
+- � Personalized book recommendations using Exa search
+- 🎯 Analysis of reader preferences and reading history
+- ⭐ Integration of ratings and reviews from Goodreads/StoryGraph
+- � Detailed book metadata including genres, awards, and content warnings
+- 🔮 Support for diverse genres and author perspectives
 
 ---
 
@@ -42,8 +44,8 @@ An intelligent AI agent that delivers personalized book suggestions based on rea
 
 ```bash
 # Clone the repository
-git clone https://github.com/raahulrahl/books-recommendation-agent.git
-cd books-recommendation-agent
+git clone https://github.com/raahulrahl/books-recommender-agent.git
+cd books-recommender-agent
 
 # Create virtual environment
 uv venv --python 3.12.9
@@ -69,7 +71,7 @@ Edit `.env` and add your API keys:
 
 ```bash
 # Start the agent
-uv run python -m books_recommendation_agent
+uv run python -m books_recommender_agent
 
 # Agent will be available at http://localhost:3773
 ```
@@ -83,7 +85,7 @@ git add .
 git commit -m "Initial commit"
 
 # Create repository on GitHub and push (replace with your GitHub username)
-gh repo create raahulrahl/books-recommendation-agent --public --source=. --remote=origin --push
+gh repo create raahulrahl/books-recommender-agent --public --source=. --remote=origin --push
 ```
 
 ---
@@ -93,40 +95,44 @@ gh repo create raahulrahl/books-recommendation-agent --public --source=. --remot
 ### Example Queries
 
 ```bash
-# Example query 1
-"[Add example query here]"
+# Get personalized recommendations
+"I loved The Night Circus and The Invisible Life of Addie LaRue. Can you recommend similar books?"
 
-# Example query 2
-"[Add another example]"
+# Genre-specific search
+"Recommend 5 fantasy books with strong female protagonists published in the last 2 years"
+
+# Based on preferences
+"I enjoy literary fiction with magical realism elements, around 300-400 pages"
 ```
 
 ### Input Formats
 
 **Plain Text:**
 ```
-[Describe expected input format]
+I'm looking for mystery novels similar to Agatha Christie with modern settings
 ```
 
 **JSON:**
 ```json
 {
-  "content": "[example content]",
-  "focus": "[example focus]"
+  "role": "user",
+  "content": "Recommend science fiction books with themes of AI and consciousness"
 }
 ```
 
 ### Output Structure
 
 The agent returns structured output with:
-- **[Output Component 1]**: Description
-- **[Output Component 2]**: Description
-- **[Output Component 3]**: Description
+- **Book Recommendations**: Title, author, publication year
+- **Detailed Metadata**: Genre, ratings, page count, awards
+- **Summaries**: Engaging plot descriptions and content advisories
+- **Additional Info**: Series information, similar authors, audiobook availability
 
 ---
 
 ## 🔌 API Usage
 
-The agent exposes a RESTful API when running. Default endpoint: `http://localhost:3773` 
+The agent exposes a RESTful API when running. Default endpoint: `http://localhost:3773`
 
 ### Quick Start
 
@@ -145,30 +151,35 @@ For complete API documentation, request/response formats, and examples, visit:
 
 ## 🎯 Skills
 
-### books_recommendation_agent (v1.0.0)
+### personalized-book-recommendation (v1.0.0)
 
 **Primary Capability:**
-- [Describe what this skill does]
-- [Add key features]
+- Curates personalized book recommendations using Exa search
+- Analyzes reader preferences and reading patterns
+- Provides comprehensive book metadata and ratings
 
 **Features:**
-- [Feature 1]
-- [Feature 2]
-- [Feature 3]
+- Exa-powered book discovery and search
+- Goodreads/StoryGraph rating integration
+- Content warnings and trigger advisories
+- Series information and author suggestions
+- Markdown-formatted recommendations with emoji indicators
 
 **Best Used For:**
-- [Use case 1]
-- [Use case 2]
-- [Use case 3]
+- Finding books similar to favorites
+- Genre-specific recommendations
+- Discovering new authors and diverse perspectives
+- Getting detailed book information with ratings
 
 **Not Suitable For:**
-- [Anti-pattern 1]
-- [Anti-pattern 2]
+- Academic paper recommendations
+- Technical documentation searches
+- Non-book media recommendations
 
 **Performance:**
-- Average processing time: ~[X] seconds
-- Max concurrent requests: [N]
-- Memory per request: [X]MB
+- Average processing time: ~1-2 seconds
+- Max concurrent requests: 10
+- Memory per request: 256MB
 
 ---
 
@@ -239,10 +250,10 @@ GitHub Actions will automatically:
 ### Project Structure
 
 ```
-books-recommendation-agent/
-├── books_recommendation_agent/
+books-recommender-agent/
+├── books_recommender_agent/
 │   ├── skills/
-│   │   └── books_recommendation_agent/
+│   │   └── books_recommender_agent/
 │   │       ├── skill.yaml          # Skill configuration
 │   │       └── __init__.py
 │   ├── __init__.py
@@ -289,9 +300,9 @@ uv run pre-commit run -a
 Contributions are welcome! Please follow these steps:
 
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature` 
-3. Commit your changes: `git commit -m 'Add amazing feature'` 
-4. Push to the branch: `git push origin feature/amazing-feature` 
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
@@ -322,9 +333,9 @@ uvx cookiecutter https://github.com/getbindu/create-bindu-agent.git
 
 ## 📚 Resources
 
-- 📖 [Full Documentation](https://raahulrahl.github.io/books-recommendation-agent/)
-- 💻 [GitHub Repository](https://github.com/raahulrahl/books-recommendation-agent/)
-- 🐛 [Report Issues](https://github.com/raahulrahl/books-recommendation-agent/issues)
+- 📖 [Full Documentation](https://raahulrahl.github.io/books-recommender-agent/)
+- 💻 [GitHub Repository](https://github.com/raahulrahl/books-recommender-agent/)
+- 🐛 [Report Issues](https://github.com/raahulrahl/books-recommender-agent/issues)
 - 💬 [Join Discord](https://discord.gg/3w5zuYUuwt)
 - 🌐 [Agent Directory](https://bindus.directory)
 - 📚 [Bindu Documentation](https://docs.getbindu.com)
@@ -336,8 +347,7 @@ uvx cookiecutter https://github.com/getbindu/create-bindu-agent.git
 </p>
 
 <p align="center">
-  <a href="https://github.com/raahulrahl/books-recommendation-agent">⭐ Star this repo</a> •
+  <a href="https://github.com/raahulrahl/books-recommender-agent">⭐ Star this repo</a> •
   <a href="https://discord.gg/3w5zuYUuwt">💬 Join Discord</a> •
   <a href="https://bindus.directory">🌐 Agent Directory</a>
 </p>
-
