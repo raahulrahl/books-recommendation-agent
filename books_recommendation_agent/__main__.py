@@ -7,9 +7,9 @@
 #
 #  Thank you users! We ❤️ you! - 🌻s
 
-"""Entry point when running package as module: python -m books_recommendation_agent."""
+"""Entry point when running package as module: python -m books-recommendation-agent."""
 
-from books_recommendation_agent.main import main
+from books-recommendation-agent.main import main
 
 if __name__ == "__main__":
     main()

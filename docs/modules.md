@@ -1,1 +1,1 @@
-::: books_recommendation_agent.main
+::: books-recommendation-agent.main

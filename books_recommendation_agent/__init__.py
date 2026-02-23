@@ -7,10 +7,10 @@
 #
 #  Thank you users! We ❤️ you! - 🌻
 
-"""books_recommendation_agent - An Bindu Agent."""
+"""books-recommendation-agent - An Bindu Agent."""
 
-from books_recommendation_agent.__version__ import __version__
-from books_recommendation_agent.main import (
+from books-recommendation-agent.__version__ import __version__
+from books-recommendation-agent.main import (
     handler,
     initialize_agent,
     initialize_all,

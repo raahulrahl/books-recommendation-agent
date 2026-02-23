@@ -1,3 +1,3 @@
-"""Version information for books_recommendation_agent."""
+"""Version information for books-recommendation-agent."""
 
 __version__ = "0.1.0"

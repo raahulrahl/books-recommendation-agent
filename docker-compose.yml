@@ -1,9 +1,9 @@
 services:
-  books_recommendation_agent:
+  books-recommendation-agent:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: books_recommendation_agent
+    container_name: books-recommendation-agent
     ports:
       - "3773:3773"
     environment:
@@ -13,13 +13,13 @@ services:
     env_file:
       - .env
     volumes:
-      - ./books_recommendation_agent:/app/books_recommendation_agent
+      - ./books-recommendation-agent:/app/books-recommendation-agent
       - ./agent_config.json:/app/agent_config.json
     restart: unless-stopped
     networks:
-      - books_recommendation_agent-network
+      - books-recommendation-agent-network
 
 
 networks:
-  books_recommendation_agent-network:
+  books-recommendation-agent-network:
     driver: bridge

@@ -360,7 +360,7 @@ wheels = [
 ]
 
 [[package]]
-name = "books_recommendation_agent"
+name = "books-recommendation-agent"
 version = "0.0.1"
 source = { editable = "." }
 dependencies = [

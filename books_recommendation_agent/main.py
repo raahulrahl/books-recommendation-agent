@@ -1,4 +1,4 @@
-"""books_recommendation_agent - An Bindu Agent."""
+"""books-recommendation-agent - An Bindu Agent."""
 
 import argparse
 import asyncio
@@ -73,7 +73,7 @@ async def initialize_agent() -> None:
         raise ValueError(msg)
 
     agent = Agent(
-        name="books_recommendation_agent Bindu Agent",
+        name="books-recommendation-agent Bindu Agent",
         model=OpenRouter(
             id=model_name,
             api_key=openrouter_api_key,
