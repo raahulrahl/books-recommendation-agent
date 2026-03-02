@@ -7,7 +7,7 @@
 #
 #  Thank you users! We ❤️ you! - 🌻
 
-"""books-recommendation-agent - An Bindu Agent."""
+"""books_recommendation_agent - An Bindu Agent."""
 
 from books_recommendation_agent.__version__ import __version__
 from books_recommendation_agent.main import (
