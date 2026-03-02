@@ -2,7 +2,7 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from books-recommendation-agent.main import handler
+from books_recommendation_agent.main import handler
 
 
 @pytest.mark.asyncio
