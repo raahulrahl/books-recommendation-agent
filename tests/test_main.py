@@ -17,8 +17,8 @@ async def test_handler_returns_response():
 
     # Mock _initialized to skip initialization and run_agent to return our mock
     with (
-        patch("books-recommendation-agent.main._initialized", True),
-        patch("books-recommendation-agent.main.run_agent", new_callable=AsyncMock, return_value=mock_response),
+        patch("books_recommendation_agent.main._initialized", True),
+        patch("books_recommendation_agent.main.run_agent", new_callable=AsyncMock, return_value=mock_response),
     ):
         result = await handler(messages)
 
@@ -40,9 +40,9 @@ async def test_handler_with_multiple_messages():
     mock_response.run_id = "test-run-id-2"
 
     with (
-        patch("books-recommendation-agent.main._initialized", True),
+        patch("books_recommendation_agent.main._initialized", True),
         patch(
-            "books-recommendation-agent.main.run_agent", new_callable=AsyncMock, return_value=mock_response
+            "books_recommendation_agent.main.run_agent", new_callable=AsyncMock, return_value=mock_response
         ) as mock_run,
     ):
         result = await handler(messages)
@@ -62,10 +62,10 @@ async def test_handler_initialization():
 
     # Start with _initialized as False to test initialization path
     with (
-        patch("books-recommendation-agent.main._initialized", False),
-        patch("books-recommendation-agent.main.initialize_all", new_callable=AsyncMock) as _mock_init,
-        patch("books-recommendation-agent.main.run_agent", new_callable=AsyncMock, return_value=mock_response),
-        patch("books-recommendation-agent.main._init_lock"),
+        patch("books_recommendation_agent.main._initialized", False),
+        patch("books_recommendation_agent.main.initialize_all", new_callable=AsyncMock) as _mock_init,
+        patch("books_recommendation_agent.main.run_agent", new_callable=AsyncMock, return_value=mock_response),
+        patch("books_recommendation_agent.main._init_lock"),
     ):
         # Note: This test verifies the initialization logic exists
         # In practice, the lock and global state make this harder to test

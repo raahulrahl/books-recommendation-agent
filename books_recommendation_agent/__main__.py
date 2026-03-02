@@ -9,7 +9,7 @@
 
 """Entry point when running package as module: python -m books-recommendation-agent."""
 
-from books-recommendation-agent.main import main
+from books_recommendation_agent.main import main
 
 if __name__ == "__main__":
     main()
